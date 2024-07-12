@@ -7,7 +7,7 @@ from pydantic import BaseModel, Field
 app = FastAPI()
 
 # Load the trained model and pipeline
-pipeline, model = joblib.load('best_catboost_model_pipeline.pkl')
+pipeline, model = joblib.load('catboost_model.pkl')
 
 # Define the schema for input data
 class MLModelSchema(BaseModel):
