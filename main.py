@@ -86,7 +86,7 @@ def home():
 def predict(data: MLModelSchema):
 
     # Convert input data to DataFrame
-    input_data = pd.DataFrame([data.dict()])
+    input_data = pd.DataFrame([data.model_dump()])
 
     # Preprocess the input data
     input_data = split_blood_pressure(input_data)
@@ -105,6 +105,6 @@ def predict(data: MLModelSchema):
 
     # Map prediction to sleep disorder
     sleep_disorder_map = {0: "None Sleep", 1: "Sleep Apnea", 2: "Insomnia"}
-    prediction_label = sleep_disorder_map[int(prediction[0])]
+    prediction_label = sleep_disorder_map[int(prediction.item(0))]
 
     return {"prediction": prediction_label}
