@@ -5,7 +5,7 @@ RUN mkdir /app
 WORKDIR /app 
 
 # Copy all files from the current directory to the 'code' directory in the container
-COPY requirements.txt main.py best_catboost_model_pipeline.pkl /app/
+COPY . . 
 
 # Install dependencies
 RUN pip install update pip && pip install -r requirements.txt 
