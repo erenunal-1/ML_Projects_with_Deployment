@@ -67,7 +67,7 @@ The **CatBoost** algorithm is utilized for model training, which includes the fo
 |   |-- test_main.py           # Tests for the FastAPI application
 |
 |-- model
-|   |-- train_model.py         # Model training script
+|   |-- model.py               # Model training script
 |   |-- catboost_model.pkl     # Trained model file
 |
 |-- data
