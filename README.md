@@ -160,20 +160,22 @@ This project uses GitHub Actions for CI/CD. The **main.yml** file in the **.gith
    
 2. **Example Request**:
 
+```json
 {
-  "Person_ID": 1,
-  "Gender": "Male",
-  "Age": 27,
-  "Occupation": "Software Engineer",
-  "Sleep_Duration": 6.1,
-  "Quality_of_Sleep": 6,
-  "Physical_Activity_Level": 42,
-  "Stress_Level": 6,
-  "BMI_Category": "Overweight",
-  "Blood_Pressure": "126/83",
-  "Heart_Rate": 77,
-  "Daily_Steps": 4200
+    "Person_ID": 1,
+    "Gender": "Male",
+    "Age": 27,
+    "Occupation": "Software Engineer",
+    "Sleep_Duration": 6.1,
+    "Quality_of_Sleep": 6,
+    "Physical_Activity_Level": 42,
+    "Stress_Level": 6,
+    "BMI_Category": "Overweight",
+    "Blood_Pressure": "126/83",
+    "Heart_Rate": 77,
+    "Daily_Steps": 4200
 }
+```
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
