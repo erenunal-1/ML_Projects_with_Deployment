@@ -83,7 +83,7 @@ Streamlined deployment pipeline:
 - Integration with GitHub Actions for Continuous Integration/Continuous Deployment (CI/CD)
 - Deployment orchestration on Google Cloud Run for scalable and efficient model serving
 
-### Deployment
+## Deployment
 
 #### Local Development, Docker Containerization, and CI/CD
 
@@ -105,4 +105,55 @@ Streamlined deployment pipeline:
 2. **Run Docker Container Locally**:
    ```bash
    docker run -p 8080:8080 your-image-name
+
+### Google Cloud Run Deployment
+
+1. **Build and push the container image:**:
+   ```bash
+   gcloud auth configure-docker us-central1-docker.pkg.dev
+   docker build -t us-central1-docker.pkg.dev/${PROJECT_ID}/fastapi/your_image_name:your_tag .
+   docker push us-central1-docker.pkg.dev/${PROJECT_ID}/fastapi/your_image_name:your_tag
+
+2. **Deploy to Cloud Run**:
+   ```bash
+   gcloud run deploy fastapi \
+     --image=us-central1-docker.pkg.dev/${PROJECT_ID}/fastapi/your_image_name:your_tag \
+     --allow-unauthenticated \
+     --port=8000 \
+     --service-account=${SERVICE_ACCOUNT} \
+     --max-instances=10 \
+     --region=us-central1 \
+     --project=${PROJECT_ID}
+
+## CI/CD Pipeline
+
+This project uses GitHub Actions for CI/CD. The **main.yml** file in the **.github/workflows** directory defines two jobs:
+
+- **Build and Test**: Checks out the repository, sets up Python, installs dependencies, and runs tests using pytest.
+- **Deploy**: Builds and pushes the Docker image to Google Container Registry and deploys the image to Google Cloud Run.
+
+## Usage
+
+1. **API Endpoints**:
+
+- **GET**: Returns a welcome message.
+- **POST /predict**: Takes input data and returns a prediction of the sleep disorder.
+   
+2. **Example Request**:
+
+{
+    "Person_ID": 1,
+    "Gender": "Male",
+    "Age": 27,
+    "Occupation": "Software Engineer",
+    "Sleep_Duration": 6.1,
+    "Quality_of_Sleep": 6,
+    "Physical_Activity_Level": 42,
+    "Stress_Level": 6,
+    "BMI_Category": "Overweight",
+    "Blood_Pressure": "126/83",
+    "Heart_Rate": 77,
+    "Daily_Steps": 4200
+}
+   
    
