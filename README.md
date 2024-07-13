@@ -108,10 +108,13 @@ Streamlined deployment pipeline:
 
 1. **Local Development and Docker Build**:
    ```bash
-   git clone https://github.com/your-username/your-repository.git
-   cd your-repository
+   git clone https://github.com/erenunal-1/ML_Projects_with_Deployment.git
+   cd ML_Projects_with_Deployment
    python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   # Linux/MacOS:
+   source venv/bin/activate
+   # Windows:
+   venv\Scripts\activate
    pip install -r requirements.txt
    uvicorn app.main:app --reload
 
@@ -130,13 +133,13 @@ Streamlined deployment pipeline:
 1. **Build and push the container image:**:
    ```bash
    gcloud auth configure-docker us-central1-docker.pkg.dev
-   docker build -t us-central1-docker.pkg.dev/${PROJECT_ID}/fastapi/your_image_name:your_tag .
-   docker push us-central1-docker.pkg.dev/${PROJECT_ID}/fastapi/your_image_name:your_tag
+   docker build -t us-central1-docker.pkg.dev/${PROJECT_ID}/proje_name/your_image_name:your_tag .
+   docker push us-central1-docker.pkg.dev/${PROJECT_ID}/proje_name/your_image_name:your_tag
 
 2. **Deploy to Cloud Run**:
    ```bash
-   gcloud run deploy fastapi \
-     --image=us-central1-docker.pkg.dev/${PROJECT_ID}/fastapi/your_image_name:your_tag \
+   gcloud run deploy proje_name \
+     --image=us-central1-docker.pkg.dev/${PROJECT_ID}/proje_name/your_image_name:your_tag \
      --allow-unauthenticated \
      --port=8000 \
      --service-account=${SERVICE_ACCOUNT} \
