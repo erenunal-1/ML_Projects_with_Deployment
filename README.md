@@ -62,21 +62,22 @@ The **CatBoost** algorithm is utilized for model training, which includes the fo
 ## Project Structure
 
 ```plaintext
-   |-- app
-   |   |-- main.py                # FastAPI application
-   |   |-- test_main.py           # Tests for the FastAPI application
-   |
-   |-- model
-   |   |-- train_model.py         # Model training script
-   |   |-- catboost_model.pkl     # Trained model file
-   |
-   |-- data
-   |   |-- dataset.csv            # Input dataset
-   |
-   |-- Dockerfile                 # Dockerfile for containerizing the app
-   |-- requirements.txt           # Python dependencies
-   |-- main.yml                   # GitHub Actions CI/CD pipeline configuration
-   |-- README.md                  # Project documentation
+|-- app
+|   |-- main.py                # FastAPI application
+|   |-- test_main.py           # Tests for the FastAPI application
+|
+|-- model
+|   |-- train_model.py         # Model training script
+|   |-- catboost_model.pkl     # Trained model file
+|
+|-- data
+|   |-- dataset.csv            # Input dataset
+|
+|-- Dockerfile                 # Dockerfile for containerizing the app
+|-- requirements.txt           # Python dependencies
+|-- main.yml                   # GitHub Actions CI/CD pipeline configuration
+|-- README.md                  # Project documentation
+```
 
 
 ### Data Preprocessing
