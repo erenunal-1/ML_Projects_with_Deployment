@@ -178,5 +178,5 @@ This project uses GitHub Actions for CI/CD. The **main.yml** file in the **.gith
 ```
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the [MIT License](https://github.com/erenunal-1/ML_Projects_with_Deployment/blob/main/LICENSE) - see the LICENSE file for details.
    
