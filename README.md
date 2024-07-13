@@ -61,6 +61,22 @@ The **CatBoost** algorithm is utilized for model training, which includes the fo
 
 ## Project Structure
 
+|-- app
+|   |-- main.py                # FastAPI application
+|   |-- test_main.py           # Tests for the FastAPI application
+|
+|-- model
+|   |-- train_model.py         # Model training script
+|   |-- catboost_model.pkl     # Trained model file
+|
+|-- data
+|   |-- dataset.csv            # Input dataset
+|
+|-- Dockerfile                 # Dockerfile for containerizing the app
+|-- requirements.txt           # Python dependencies
+|-- main.yml                   # GitHub Actions CI/CD pipeline configuration
+|-- README.md                  # Project documentation
+
 ### Data Preprocessing
 Scripts dedicated to comprehensive data preprocessing tasks, including:
 - Feature engineering for enhanced predictive power
@@ -142,18 +158,20 @@ This project uses GitHub Actions for CI/CD. The **main.yml** file in the **.gith
 2. **Example Request**:
 
 {
-    "Person_ID": 1,
-    "Gender": "Male",
-    "Age": 27,
-    "Occupation": "Software Engineer",
-    "Sleep_Duration": 6.1,
-    "Quality_of_Sleep": 6,
-    "Physical_Activity_Level": 42,
-    "Stress_Level": 6,
-    "BMI_Category": "Overweight",
-    "Blood_Pressure": "126/83",
-    "Heart_Rate": 77,
-    "Daily_Steps": 4200
+  "Person_ID": 1,
+  "Gender": "Male",
+  "Age": 27,
+  "Occupation": "Software Engineer",
+  "Sleep_Duration": 6.1,
+  "Quality_of_Sleep": 6,
+  "Physical_Activity_Level": 42,
+  "Stress_Level": 6,
+  "BMI_Category": "Overweight",
+  "Blood_Pressure": "126/83",
+  "Heart_Rate": 77,
+  "Daily_Steps": 4200
 }
-   
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
    
