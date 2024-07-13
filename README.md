@@ -8,10 +8,14 @@ The primary goal of this project is to develop, deploy, and manage a machine lea
 
 This project demonstrates the following objectives:
 
-**CI/CD Integration:** Automates the process of testing and deploying machine learning models using GitHub Actions.
+**CI/CD Integration:** Automates the process of testing and deploying machine learning models using GitHub Actions. 
+
 **Efficient Model Deployment:** Ensures rapid and reliable deployment of models to production environments.
+
 **Lifecycle Management:** Manages the entire lifecycle of the model, from training and evaluation to deployment and monitoring.
+
 **Collaboration Enhancement:** Increases collaboration between development and operations teams through continuous integration and continuous deployment (CI/CD) practices.
+
 **Reliability and Consistency:** Ensures that models maintain their expected performance through rigorous testing processes.
 
 ## Dataset
@@ -91,3 +95,14 @@ Streamlined deployment pipeline:
    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
    pip install -r requirements.txt
    uvicorn app.main:app --reload
+
+### Docker Deployment
+
+1. **Build Docker Image**:
+   ```bash
+   docker build -t your-image-name .
+
+2. **Run Docker Container Locally**:
+   ```bash
+   docker run -p 8080:8080 your-image-name
+   
