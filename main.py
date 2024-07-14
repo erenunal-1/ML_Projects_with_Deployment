@@ -53,17 +53,44 @@ class MLModelSchema(BaseModel):
 
 # Define preprocessing functions
 def split_blood_pressure(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Splits blood pressure values into systolic and diastolic and removes the original column.
+
+    Args:
+        col: The name of the blood pressure column.
+        df: The DataFrame containing the data.
+
+    Returns:
+        pd.DataFrame: The updated DataFrame with separate systolic and diastolic columns.
+    """
     df[["BP_Systolic", "BP_Diastolic"]] = df["Blood_Pressure"].str.split('/', expand=True)
     df[["BP_Systolic", "BP_Diastolic"]] = df[["BP_Systolic", "BP_Diastolic"]].apply(pd.to_numeric)
     df.drop("Blood_Pressure", axis=1, inplace=True)
     return df
 
 def calculate_sleep_metrics(df: pd.DataFrame) -> pd.DataFrame:
+        """
+    Calculates sleep efficiency and stress impact and adds them to the DataFrame.
+
+    Args:
+        df: The DataFrame containing sleep data.
+
+    Returns:
+        pd.DataFrame: The updated DataFrame with sleep efficiency and stress impact columns.
+    """
     df["Sleep_Efficiency"] = df["Sleep_Duration"] / df["Quality_of_Sleep"]
     df["Stress_Impact"] = df["Stress_Level"] / df["Quality_of_Sleep"]
     return df
 
 def add_exercise_intensity(df: pd.DataFrame) -> pd.DataFrame:
+        """Categorizes exercise intensity based on physical activity level and adds it to the DataFrame.
+
+    Args:
+        df: The DataFrame containing physical activity data.
+
+    Returns:
+        pd.DataFrame: The updated DataFrame with the new exercise intensity column.
+    """
     df['Exercise_Intensity'] = df['Physical_Activity_Level'].apply(
         lambda minutes: 'Low' if minutes <= 45 else
                         'Middle' if 45 < minutes <= 60 else
@@ -73,6 +100,14 @@ def add_exercise_intensity(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 def segment_age(df: pd.DataFrame) -> pd.DataFrame:
+    """Segments age into categories and adds it to the DataFrame.
+
+    Args:
+        df: The DataFrame containing age data.
+
+    Returns:
+        pd.DataFrame: The updated DataFrame with the new age segment column.
+    """
     bins = [26, 35, 43, 50, 60]
     labels = ['Young', 'Middle-aged', 'Old', 'Very Old']
     df['Age_Segment'] = pd.cut(df['Age'], bins=bins, labels=labels, right=False)
