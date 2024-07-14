@@ -69,7 +69,7 @@ def split_blood_pressure(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 def calculate_sleep_metrics(df: pd.DataFrame) -> pd.DataFrame:
-        """
+    """
     Calculates sleep efficiency and stress impact and adds them to the DataFrame.
 
     Args:
@@ -83,7 +83,7 @@ def calculate_sleep_metrics(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 def add_exercise_intensity(df: pd.DataFrame) -> pd.DataFrame:
-        """Categorizes exercise intensity based on physical activity level and adds it to the DataFrame.
+    """Categorizes exercise intensity based on physical activity level and adds it to the DataFrame.
 
     Args:
         df: The DataFrame containing physical activity data.
