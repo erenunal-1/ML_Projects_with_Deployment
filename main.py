@@ -143,3 +143,7 @@ def predict(data: MLModelSchema):
     prediction_label = sleep_disorder_map[int(prediction.item(0))]
 
     return {"prediction": prediction_label}
+
+
+
+
